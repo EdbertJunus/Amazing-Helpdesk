@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/offline_staff_title"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/offline">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/tv_offlineName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_staff_name"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/yellow"
+        android:layout_marginTop="20dp"
+        android:paddingVertical="36dp"
+        android:paddingHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/tv_offlineTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/offline_staff_time"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_reserve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/offline_staff_reserve_btn"
+            android:padding="16dp"
+            android:layout_alignParentTop="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

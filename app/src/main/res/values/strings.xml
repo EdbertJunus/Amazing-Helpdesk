@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Amazing Helpdesk</string>
+    <string name="main_button">Click Here</string>
+    <string name="card_staff_name">[STAFF NAME]</string>
+    <!--Online Staff Detail-->
+    <string name="online_staff_title"><u>Available Staff</u></string>
+    <string name="online_staff_name">[STAFF NAME]</string>
+    <string name="online_staff_email">Email: </string>
+    <string name="online_staff_phone">Phone: </string>
+    <string name="online_staff_email_btn">Click here to send email</string>
+    <string name="online_staff_call_btn">Click here to call</string>
+    <!--Offline Staff Detail-->
+    <string name="offline_staff_title"><u>Offline</u></string>
+    <string name="offline_staff_time">Will be available at</string>
+    <string name="offline_staff_reserve_btn">Reserve time for a call or email confirmation</string>
 </resources>
