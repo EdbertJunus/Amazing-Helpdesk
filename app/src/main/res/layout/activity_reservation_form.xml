@@ -38,40 +38,112 @@
             />
     </LinearLayout>
 
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:rowCount="3"
+        android:columnCount="1"
         android:layout_marginTop="20dp"
-        android:paddingVertical="36dp"
-        android:paddingHorizontal="10dp">
+        android:useDefaultMargins="true">
 
-        <TextView
-            android:id="@+id/tv_offlineTime"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/offline_staff_time"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:layout_marginBottom="10dp"
-            />
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            >
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_date"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="26dp"
+                />
+
+            <EditText
+                android:id="@+id/et_reservationDate"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:inputType="date"
+                android:background="@drawable/shape"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_time"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="26dp"
+                />
+
+            <EditText
+                android:id="@+id/et_reservationTime"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:inputType="time"
+                android:background="@drawable/shape"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_name"
+                android:textSize="16sp"
+                android:paddingLeft="26dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <EditText
+                android:id="@+id/et_reservationName"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:inputType="text"
+                android:background="@drawable/shape"/>
+        </LinearLayout>
+
+    </GridLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:gravity="center">
 
         <Button
-            android:id="@+id/btn_reserve"
+            android:id="@+id/btn_saveReservation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/offline_staff_reserve_btn"
+            android:text="@string/save_reservation"
             android:padding="16dp"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            />
+
+        <Button
+            android:id="@+id/btn_viewReservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_reservation"
+            android:padding="16dp"
+            android:layout_below="@+id/btn_saveReservation"
+            />
 
     </RelativeLayout>
 

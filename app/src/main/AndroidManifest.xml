@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" android:exported="true"/>
+        <activity android:name=".OnlineStaffActivity" android:exported="true"/>
+        <activity android:name=".OfflineStaffActivity" android:exported="true" />
+        <activity android:name=".ReservationFormActivity" android:exported="true" />
     </application>
 
 </manifest>

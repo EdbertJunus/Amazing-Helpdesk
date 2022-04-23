@@ -62,6 +62,37 @@ public class StaffHelper {
         return staffArrayList;
     }
 
+    public Staff findStaffById(String id){
+        String query = "SELECT * FROM MsStaff WHERE StaffId = '" + id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        Staff staff = null;
+        String name, email, phone;
+        String availableStatus;
+        String availableStart, availableEnd;
+
+        if(cursor != null){
+            do{
+                name = cursor.getString(cursor.getColumnIndexOrThrow("StaffName"));
+                availableStatus = cursor.getString(cursor.getColumnIndexOrThrow("StaffAvailableStatus"));
+                id = cursor.getString(cursor.getColumnIndexOrThrow("StaffId"));
+                email = cursor.getString(cursor.getColumnIndexOrThrow("StaffEmail"));
+                phone = cursor.getString(cursor.getColumnIndexOrThrow("StaffPhone"));
+                availableStart = cursor.getString(cursor.getColumnIndexOrThrow("StaffStartTime"));
+                availableEnd = cursor.getString(cursor.getColumnIndexOrThrow("StaffEndTime"));
+
+                boolean availableStatusTemp = Boolean.parseBoolean(availableStatus);
+                Time startTime = Time.valueOf(availableStart);
+                Time endTime = Time.valueOf(availableEnd);
+
+                staff = new Staff(name, availableStatusTemp, id, email, phone, startTime, endTime);
+
+            }while(cursor.moveToNext());
+        }
+        return staff;
+    }
+
 //    public void insertStaff(String name, String availableStatus, String id, String email, String phone, String availableStart, String availableEnd){
 //        String query = "INSERT INTO MsStaff VALUES ('" + name + "', '" + availableStatus + "', '" + id + "', '" + email + "', '" + phone + "', '" + availableStart + "', '" + availableEnd + "')";
 //        db.execSQL(query);

@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public void init(){
         btnRedirect = findViewById(R.id.btn_redirectHome);
 
-        System.out.println("Hello");
-
         btnRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

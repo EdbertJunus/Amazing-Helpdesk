@@ -1,6 +1,7 @@
 package com.example.amazinghelpdesk.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.amazinghelpdesk.HomeActivity;
+import com.example.amazinghelpdesk.OfflineStaffActivity;
+import com.example.amazinghelpdesk.OnlineStaffActivity;
 import com.example.amazinghelpdesk.R;
 import com.example.amazinghelpdesk.model.Reservation;
 import com.example.amazinghelpdesk.model.Staff;
@@ -47,11 +51,16 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.ViewHolder> 
             holder.cvCard.setBackgroundColor(ContextCompat.getColor(ctx, R.color.offline));
         }
 
-
-
-
         holder.cvCard.setOnClickListener(view -> {
-            System.out.println(currentStaffId + " Clicked");
+            Intent intent;
+            if(staff.isAvailableStatus()){
+                intent = new Intent(ctx, OnlineStaffActivity.class);
+            }else{
+                intent = new Intent(ctx, OfflineStaffActivity.class);
+            }
+
+            intent.putExtra("staffId", currentStaffId);
+            ctx.startActivity(intent);
         });
 
     }

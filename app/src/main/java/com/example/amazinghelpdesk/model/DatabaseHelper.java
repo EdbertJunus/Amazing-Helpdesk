@@ -20,6 +20,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "CREATE TABLE MsStaff (StaffName, StaffAvailableStatus, StaffId, StaffEmail, StaffPhone, StaffStartTime, StaffEndTime)";
         sqLiteDatabase.execSQL(query);
 
+        query = "CREATE TABLE MsReservation (StaffId, ReservationId, ReservationDate, ReservationTime, ReservationName)";
+        sqLiteDatabase.execSQL(query);
+
         query = "INSERT INTO MsStaff VALUES " +
                 "('Doraemon', 'true', 'BNS001', 'doraemon@gmail.com', '081245678956', '17:00:00', '23:00:00'), " +
                 "('Shizuka', 'true', 'BNS002', 'shizuka@gmail.com', '081212348956', '18:00:00', '20:00:00'), " +
@@ -41,6 +44,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         String query = "DROP TABLE IF EXISTS MsStaff";
         sqLiteDatabase.execSQL(query);
+
+        query = "DROP TABLE IF EXISTS MsReservation";
+        sqLiteDatabase.execSQL(query);
+
         onCreate(sqLiteDatabase);
     }
 }

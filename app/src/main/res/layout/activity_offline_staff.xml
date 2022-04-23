@@ -44,7 +44,7 @@
         android:orientation="vertical"
         android:background="@color/yellow"
         android:layout_marginTop="20dp"
-        android:paddingVertical="36dp"
+        android:paddingVertical="60dp"
         android:paddingHorizontal="10dp">
 
         <TextView
@@ -59,21 +59,13 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/btn_reserve"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="@string/offline_staff_reserve_btn"
+        android:padding="16dp"
         android:layout_marginTop="20dp"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btn_reserve"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/offline_staff_reserve_btn"
-            android:padding="16dp"
-            android:layout_alignParentTop="true"/>
-
-    </RelativeLayout>
+        />
 
 </LinearLayout>
