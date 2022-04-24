@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class Reservation {
     private String staffId;
-    private String id;
+    private String reservationId;
     private Date date;
     private Time time;
     private String customerName;
 
     public Reservation(String staffId, String id, Date date, Time time, String customerName) {
         this.staffId = staffId;
-        this.id = id;
+        this.reservationId = id;
         this.date = date;
         this.time = time;
         this.customerName = customerName;
@@ -26,12 +26,12 @@ public class Reservation {
         this.staffId = staffId;
     }
 
-    public String getId() {
-        return id;
+    public String getReservationId() {
+        return reservationId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setReservationId(String id) {
+        this.reservationId = id;
     }
 
     public Date getDate() {
@@ -40,6 +40,14 @@ public class Reservation {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public String getCustomerName() {

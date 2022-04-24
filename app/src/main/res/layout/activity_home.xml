@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/dwLayoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingVertical="30dp"
-    android:paddingHorizontal="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tool:context=".HomeActivity">
 
-    <ScrollView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Available Staff"
-                android:textSize="30sp"
-                android:gravity="center"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingVertical="30dp"
+                android:paddingHorizontal="20dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_availableStaffs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/available_title_home"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:textColor="?titleColor"
+                    android:textStyle="bold"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Offline"
-                android:textSize="30sp"
-                android:gravity="center"
-                />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_availableStaffs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_offlineStaffs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offline_title_home"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:textColor="?titleColor"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    />
 
-        </LinearLayout>
-    </ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_offlineStaffs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"/>
 
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navViewHome"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/menu_header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="@color/purple_500"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearance="@style/MenuItems"
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>

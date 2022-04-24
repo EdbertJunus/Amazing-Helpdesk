@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/dwLayoutSetting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tool:context=".SettingActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="30dp"
+        android:paddingHorizontal="20dp">>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_title"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginBottom="50dp"
+            android:textStyle="bold"
+            android:textColor="?titleColor"
+            />
+        <Button
+            android:id="@+id/btn_changeTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_theme_btn"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/black"
+            />
+        <Button
+            android:id="@+id/btn_uninstall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/uninstall_btn"
+            android:textSize="16sp"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navViewSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:headerLayout="@layout/menu_header"
+            app:menu="@menu/main_menu"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:background="@color/purple_500"
+            app:itemTextColor="@color/white"
+            app:itemTextAppearance="@style/MenuItems"
+            />
+
+</androidx.drawerlayout.widget.DrawerLayout>

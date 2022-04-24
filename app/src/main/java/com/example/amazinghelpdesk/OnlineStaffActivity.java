@@ -1,11 +1,15 @@
 package com.example.amazinghelpdesk;
 
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.amazinghelpdesk.model.Staff;
 import com.example.amazinghelpdesk.model.StaffHelper;
@@ -20,6 +24,8 @@ public class OnlineStaffActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_staff);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.purple_500)));
+
         init();
     }
 
@@ -48,14 +54,18 @@ public class OnlineStaffActivity extends AppCompatActivity {
         btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Email to " + staff.getEmail());
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("mailto: " + staff.getEmail()));
+                startActivity(intent);
             }
         });
 
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Call to " + staff.getPhone());
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel: " + "+62" + newPhoneFormat));
+                startActivity(intent);
             }
         });
 

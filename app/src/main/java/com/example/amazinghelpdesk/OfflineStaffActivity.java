@@ -1,12 +1,14 @@
 package com.example.amazinghelpdesk;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.amazinghelpdesk.model.Staff;
 import com.example.amazinghelpdesk.model.StaffHelper;
@@ -25,10 +27,12 @@ public class OfflineStaffActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_staff);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.purple_500)));
+
         init();
     }
 
-    private String convertTime(String time){
+    public String convertTime(String time){
         String newTime = time;
         int hour = Integer.parseInt(time.substring(0, 2));
         if( hour > 12){
@@ -73,6 +77,10 @@ public class OfflineStaffActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(OfflineStaffActivity.this, ReservationFormActivity.class);
+                intent.putExtra("startTime", startTime.toString());
+                intent.putExtra("endTime", endTime.toString());
+                intent.putExtra("staffId", id);
+                intent.putExtra("staffName", staff.getName());
                 startActivity(intent);
             }
         });

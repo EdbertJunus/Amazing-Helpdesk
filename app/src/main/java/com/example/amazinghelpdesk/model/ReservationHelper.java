@@ -29,7 +29,7 @@ public class ReservationHelper {
         helper.close();
     }
 
-    public ArrayList<Reservation> viewReservations(String id){
+    public ArrayList<Reservation> viewReservationsById(String id){
         ArrayList<Reservation> reservationArrayList = new ArrayList<>();
         String query = "SELECT * FROM MsReservation WHERE StaffId = '" +id+"'";
         Cursor cursor = db.rawQuery(query, null);
@@ -48,10 +48,18 @@ public class ReservationHelper {
                 time = cursor.getString(cursor.getColumnIndexOrThrow("ReservationTime"));
                 reservationName = cursor.getString(cursor.getColumnIndexOrThrow("ReservationName"));
 
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 ParsePosition position = new ParsePosition(0);
                 Date reservationDate = formatter.parse(date, position);
-                Time reservationTime = Time.valueOf(time);
+
+                System.out.println("Date: " + date);
+                System.out.println("Time: " + time);
+                System.out.println("Reservation date: " + reservationDate);
+
+                Time reservationTime = Time.valueOf(time+":00");
+
+
+                System.out.println("Reservation Time: " + reservationTime);
 
                 temp = new Reservation(staffId, reservationId, reservationDate, reservationTime, reservationName);
                 reservationArrayList.add(temp);
@@ -64,8 +72,19 @@ public class ReservationHelper {
     }
 
     public void insertReservation(String staffId, String reservationId, String reservationDate, String reservationTime, String reservationName){
-        String query = "INSERT INTO MsStaff VALUES ('" + staffId + "', '" + reservationId + "', '" + reservationDate + "', '" + reservationTime + "', '" + reservationName + "')";
+        String query = "INSERT INTO MsReservation VALUES ('" + staffId + "', '" + reservationId + "', '" + reservationDate + "', '" + reservationTime + "', '" + reservationName + "')";
         db.execSQL(query);
+    }
+
+        public void updateReservation(String staffId, String reservationDate, String reservationTime, String reservationName){
+
+        String query = "UPDATE MsReservation SET ReservationDate = '" + reservationDate + "', ReservationTime = '" + reservationTime + "', ReservationName = '" + reservationName + "' WHERE StaffId = '" + staffId + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        if(cursor != null){
+            db.execSQL(query);
+        }
     }
 
 }

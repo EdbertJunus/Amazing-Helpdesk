@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">Amazing Helpdesk</string>
+    <string name="app_name">Welcome to \"Amazing Helpdesk\"</string>
+    <string name="main_title">Amazing Helpdesk</string>
     <string name="main_button">Click Here</string>
     <string name="card_staff_name">[STAFF NAME]</string>
+    <string name="available_title_home"><u>Available Staff</u></string>
+    <string name="offline_title_home"><u>Offline</u></string>
     <!--Online Staff Detail-->
     <string name="online_staff_title"><u>Available Staff</u></string>
     <string name="online_staff_name">[STAFF NAME]</string>
@@ -19,11 +22,34 @@
     <string name="offline_name">Name</string>
     <string name="save_reservation">Save Reservation Time</string>
     <string name="view_reservation">View Reservation</string>
-
+    <string name="success_reservation">Success Create Reservation</string>
+    <string name="date_input_format">[dd/mm/yyyy]</string>
+    <string name="time_input_format">[hh:mm]</string>
+    <string name="name_input_format">[3 - 25 characters]</string>
+    <!--Offline Reservation View-->
+    <string name="reservation_title">Reservation Time</string>
+    <string name="reservation_date">[RESERVATION DATE]</string>
+    <string name="reservation_time">[RESERVATION TIME]</string>
+    <string name="reservation_name">[RESERVATION NAME]</string>
+    <string name="reservation_empty">Currently, there is no reservation</string>
+    <!--Setting-->
+    <string name="setting_title"><u>Setting</u></string>
+    <string name="change_theme_btn">Change Theme</string>
+    <string name="uninstall_btn">Uninstall</string>
+    <!--FAQ-->
+    <string name="faq_title"><u>FAQ</u></string>
+    <string name="faq_mockup">This app is for mockup only.</string>
+    <string name="faq_create">Created on 2022 by Edbert Junus</string>
+    <!--MENU-->
+    <string name="home_menu"><u>HOME</u></string>
+    <string name="setting_menu"><u>SETTING</u></string>
+    <string name="open_menu">Open Menu</string>
+    <string name="close_menu">Close Menu</string>
     <!--ERROR-->
     <string name="error_fill_reservation">Please fill the date, time and name</string>
     <string name="error_date_format">Date must have a correct format</string>
-    <string name="error_date_compare">Date must be today or come after today</string>
     <string name="error_time_format">Time must have a correct format</string>
-    <string name="error_time_compare">Time must come after current time</string>
+    <string name="error_date_time_compare">Datetime must come after current datetime</string>
+    <string name="error_time_reservation">Input time must be between </string>
+    <string name="error_name_length">Name length must be between 3 to 25 characters</string>
 </resources>
