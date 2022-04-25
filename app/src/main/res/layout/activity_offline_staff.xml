@@ -1,77 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/dwLayoutStaffDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingVertical="30dp"
-    android:paddingHorizontal="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tool:context=".OfflineStaffActivity">
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/offline_staff_title"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_marginBottom="30dp"
-        android:textColor="?titleColor"
-        android:textStyle="bold"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@color/offline">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_person_24"
-            android:layout_marginLeft="10dp"
-            />
-        <TextView
-            android:id="@+id/tv_offlineName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/card_staff_name"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/yellow"
-        android:layout_marginTop="20dp"
-        android:paddingVertical="60dp"
-        android:paddingHorizontal="10dp">
+        android:paddingVertical="30dp"
+        android:paddingHorizontal="20dp">
 
         <TextView
-            android:id="@+id/tv_offlineTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/offline_staff_time"
-            android:textSize="16sp"
+            android:text="@string/offline_staff_title"
+            android:textSize="30sp"
             android:gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="?titleColor"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/offline">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_person_24"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_offlineName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/card_staff_name"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/yellow"
+            android:layout_marginTop="20dp"
+            android:paddingVertical="60dp"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/tv_offlineTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_staff_time"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_reserve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/offline_staff_reserve_btn"
+            android:padding="16dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"
+            android:backgroundTint="@color/blue"
             />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_reserve"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/offline_staff_reserve_btn"
-        android:padding="16dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/blue"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navViewStaffDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/menu_header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="@color/purple_500"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearance="@style/MenuItems"
         />
 
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,165 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/dwLayoutStaffDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingVertical="30dp"
-    android:paddingHorizontal="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tool:context=".ReservationViewActivity">
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/offline_staff_title"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_marginBottom="30dp"
-        android:textStyle="bold"
-        android:textColor="?titleColor"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="30dp"
+        android:paddingHorizontal="20dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@color/offline">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_person_24"
-            android:layout_marginLeft="10dp"
-            />
         <TextView
-            android:id="@+id/tv_offlineNameReservationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/card_staff_name"
-            android:layout_gravity="center"
+            android:text="@string/offline_staff_title"
+            android:textSize="30sp"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/black"
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
+            android:textColor="?titleColor"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/offline">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_person_24"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_offlineNameReservationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/card_staff_name"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reservation_title"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="?titleColor"
+            />
+
+        <GridLayout
+            android:id="@+id/grid_reservationInfo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:rowCount="3"
+            android:columnCount="1"
+            android:layout_marginTop="20dp"
+            android:useDefaultMargins="true"
+            android:background="@color/yellow"
+            android:paddingVertical="20dp">
+
+            <TextView
+                android:id="@+id/tv_reservationEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/reservation_empty"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:id="@+id/linear_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offline_date"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="26dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reservationDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reservation_date"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offline_time"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="26dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reservationTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reservation_time"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offline_name"
+                    android:textSize="16sp"
+                    android:paddingLeft="26dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reservationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reservation_name"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
+        </GridLayout>
+
+
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/reservation_title"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:textColor="?titleColor"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navViewStaffDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/menu_header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="@color/purple_500"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearance="@style/MenuItems"
         />
 
-    <GridLayout
-        android:id="@+id/grid_reservationInfo"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:rowCount="3"
-        android:columnCount="1"
-        android:layout_marginTop="20dp"
-        android:useDefaultMargins="true"
-        android:background="@color/yellow"
-        android:paddingVertical="20dp">
-
-        <TextView
-            android:id="@+id/tv_reservationEmpty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/reservation_empty"
-            android:textSize="16sp"
-            android:visibility="gone"
-            android:textColor="@color/black"
-            />
-
-        <LinearLayout
-            android:id="@+id/linear_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center"
-            >
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/offline_date"
-                android:textSize="16sp"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="26dp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:id="@+id/tv_reservationDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reservation_date"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center"
-            >
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/offline_time"
-                android:textSize="16sp"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="26dp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:id="@+id/tv_reservationTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reservation_time"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            >
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/offline_name"
-                android:textSize="16sp"
-                android:paddingLeft="26dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:id="@+id/tv_reservationName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reservation_name"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-
-    </GridLayout>
-
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

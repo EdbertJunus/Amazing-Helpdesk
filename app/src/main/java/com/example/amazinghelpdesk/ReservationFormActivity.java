@@ -4,18 +4,23 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.amazinghelpdesk.model.Reservation;
 import com.example.amazinghelpdesk.model.ReservationHelper;
 import com.example.amazinghelpdesk.model.StaffHelper;
+import com.google.android.material.navigation.NavigationView;
 
 import java.sql.Time;
 import java.text.ParseException;
@@ -32,13 +37,71 @@ public class ReservationFormActivity extends AppCompatActivity {
     private ReservationHelper helper;
     private ArrayList<Reservation> reservationArrayList = new ArrayList<>();
 
+    private DrawerLayout staffDetailDWLayout;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_form);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.purple_500)));
 
+        menu();
         init();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(toggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(staffDetailDWLayout.isDrawerOpen(GravityCompat.START)){
+            staffDetailDWLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    private void menu(){
+        staffDetailDWLayout = findViewById(R.id.dwLayoutStaffDetail);
+
+        toggle = new ActionBarDrawerToggle(ReservationFormActivity.this, staffDetailDWLayout, R.string.open_menu, R.string.close_menu);
+        staffDetailDWLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView = findViewById(R.id.navViewStaffDetail);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                item.setChecked(true);
+                staffDetailDWLayout.closeDrawer(GravityCompat.START);
+                Intent intent;
+
+                if(id == R.id.menuHome){
+                    intent = new Intent(ReservationFormActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                }else if(id == R.id.menuSetting){
+                    intent = new Intent(ReservationFormActivity.this, SettingActivity.class);
+                    startActivity(intent);
+                }else if(id == R.id.menuFaq){
+                    intent = new Intent(ReservationFormActivity.this, FaqActivity.class);
+                    startActivity(intent);
+                }else{
+                    return false;
+                }
+                return true;
+            }
+        });
     }
 
     private boolean validateDate(String date){

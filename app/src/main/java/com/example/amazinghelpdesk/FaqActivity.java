@@ -42,7 +42,8 @@ public class FaqActivity extends AppCompatActivity {
         if(faqDWLayout.isDrawerOpen(GravityCompat.START)){
             faqDWLayout.closeDrawer(GravityCompat.START);
         }else{
-            super.onBackPressed();
+            Intent intent = new Intent(FaqActivity.this, HomeActivity.class);
+            startActivity(intent);
         }
     }
 

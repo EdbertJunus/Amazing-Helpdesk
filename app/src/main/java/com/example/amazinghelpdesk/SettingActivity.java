@@ -49,7 +49,8 @@ public class SettingActivity extends AppCompatActivity {
         if(settingDWLayout.isDrawerOpen(GravityCompat.START)){
             settingDWLayout.closeDrawer(GravityCompat.START);
         }else{
-            super.onBackPressed();
+            Intent intent = new Intent(SettingActivity.this, HomeActivity.class);
+            startActivity(intent);
         }
     }
 
