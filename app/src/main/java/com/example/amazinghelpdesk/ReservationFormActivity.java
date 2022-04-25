@@ -155,8 +155,8 @@ public class ReservationFormActivity extends AppCompatActivity {
 //        System.out.println("startAvail: " + startAvailable);
 //        System.out.println("endAvail: " + endAvailable);
 //
-        System.out.println("startAvail: " + currentStartAvailable);
-        System.out.println("endAvail: " + currentEndAvailable);
+//        System.out.println("startAvail: " + currentStartAvailable);
+//        System.out.println("endAvail: " + currentEndAvailable);
 
         if(inputDateTime == null){
             Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_time_format), Toast.LENGTH_SHORT).show();
@@ -164,14 +164,14 @@ public class ReservationFormActivity extends AppCompatActivity {
         }else if(inputDateTime.before(currentDateTime)){
             Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_date_time_compare), Toast.LENGTH_SHORT).show();
             isValid = false;
-        }else if(inputDateTime.before(currentStartAvailable) || inputDateTime.after(currentEndAvailable)){
+        }else if(inputDateTime.before(currentStartAvailable) && inputDateTime.after(currentEndAvailable)){
             String message = getResources().getText(R.string.error_time_reservation) + " " + startTime.substring(0, 5) + " and " + endTime.substring(0, 5);
             Toast.makeText(ReservationFormActivity.this, message, Toast.LENGTH_SHORT).show();
             isValid = false;
         }else{
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy kk:mm");
-            Date today = new Date();
-            String todayStr = dateFormat.format(today);
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy kk:mm");
+//            Date today = new Date();
+//            String todayStr = dateFormat.format(today);
 
             isValid = true;
         }
@@ -208,11 +208,6 @@ public class ReservationFormActivity extends AppCompatActivity {
 
         tvStaffName.setText(staffName);
 
-        //Initiate reservationList for current staff
-        helper = new ReservationHelper(ReservationFormActivity.this);
-        helper.open();
-        reservationArrayList = helper.viewReservationsById(staffId);
-        helper.close();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,6 +215,7 @@ public class ReservationFormActivity extends AppCompatActivity {
                 String dateStr = date.getText().toString();
                 String timeStr = time.getText().toString();
                 String nameStr = name.getText().toString();
+
 
                 if(dateStr.isEmpty() || timeStr.isEmpty() || nameStr.isEmpty()){
                     Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_fill_reservation), Toast.LENGTH_SHORT).show();
@@ -229,6 +225,8 @@ public class ReservationFormActivity extends AppCompatActivity {
 
                         helper = new ReservationHelper(ReservationFormActivity.this);
                         helper.open();
+                        reservationArrayList = helper.viewReservationsById(staffId);
+
 
                         //CreateId automatically
                         if(reservationArrayList.size() > 0){
