@@ -111,15 +111,6 @@ public class ReservationFormActivity extends AppCompatActivity {
 
         dateFormat.setLenient(false);
         Date inputDate = dateFormat.parse(date, new ParsePosition(0));
-        Date currentDate = new Date();
-
-        System.out.println(inputDate);
-
-        if(inputDate != null){
-            System.out.println(currentDate);
-            System.out.println("Is it today" + inputDate.equals(currentDate));
-            System.out.println(currentDate.compareTo(inputDate));
-        }
 
         if(inputDate == null) {
             Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_date_format), Toast.LENGTH_SHORT).show();
@@ -150,29 +141,30 @@ public class ReservationFormActivity extends AppCompatActivity {
         Date currentStartAvailable = dateTimeFormat.parse(startAvailable, new ParsePosition(0));
         Date currentEndAvailable = dateTimeFormat.parse(endAvailable, new ParsePosition(0));
 
-//        System.out.println("DateTimeStr: " + dateTime);
-//        System.out.println("InputDateTime: " + inputDateTime);
-//        System.out.println("startAvail: " + startAvailable);
-//        System.out.println("endAvail: " + endAvailable);
-//
-//        System.out.println("startAvail: " + currentStartAvailable);
-//        System.out.println("endAvail: " + currentEndAvailable);
+        boolean timeRange = false;
+        //Jika start after end
 
+        if(inputDateTime!=null){
+
+            if(currentStartAvailable.after(currentEndAvailable)){
+                timeRange = inputDateTime.before(currentStartAvailable) && inputDateTime.after(currentEndAvailable);
+            }else if(currentStartAvailable.before(currentEndAvailable)){
+                timeRange = inputDateTime.before(currentStartAvailable) || inputDateTime.after(currentEndAvailable);
+            }
+
+        }
+        
         if(inputDateTime == null){
             Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_time_format), Toast.LENGTH_SHORT).show();
             isValid = false;
         }else if(inputDateTime.before(currentDateTime)){
             Toast.makeText(ReservationFormActivity.this, getResources().getText(R.string.error_date_time_compare), Toast.LENGTH_SHORT).show();
             isValid = false;
-        }else if(inputDateTime.before(currentStartAvailable) && inputDateTime.after(currentEndAvailable)){
+        }else if(timeRange){
             String message = getResources().getText(R.string.error_time_reservation) + " " + startTime.substring(0, 5) + " and " + endTime.substring(0, 5);
             Toast.makeText(ReservationFormActivity.this, message, Toast.LENGTH_SHORT).show();
             isValid = false;
         }else{
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy kk:mm");
-//            Date today = new Date();
-//            String todayStr = dateFormat.format(today);
-
             isValid = true;
         }
 

@@ -52,14 +52,7 @@ public class ReservationHelper {
                 ParsePosition position = new ParsePosition(0);
                 Date reservationDate = formatter.parse(date, position);
 
-                System.out.println("Date: " + date);
-                System.out.println("Time: " + time);
-                System.out.println("Reservation date: " + reservationDate);
-
                 Time reservationTime = Time.valueOf(time+":00");
-
-
-                System.out.println("Reservation Time: " + reservationTime);
 
                 temp = new Reservation(staffId, reservationId, reservationDate, reservationTime, reservationName);
                 reservationArrayList.add(temp);
@@ -76,7 +69,7 @@ public class ReservationHelper {
         db.execSQL(query);
     }
 
-        public void updateReservation(String staffId, String reservationDate, String reservationTime, String reservationName){
+    public void updateReservation(String staffId, String reservationDate, String reservationTime, String reservationName){
 
         String query = "UPDATE MsReservation SET ReservationDate = '" + reservationDate + "', ReservationTime = '" + reservationTime + "', ReservationName = '" + reservationName + "' WHERE StaffId = '" + staffId + "'";
         Cursor cursor = db.rawQuery(query, null);

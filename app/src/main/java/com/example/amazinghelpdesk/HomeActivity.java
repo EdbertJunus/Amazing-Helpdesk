@@ -111,7 +111,6 @@ public class HomeActivity extends AppCompatActivity {
                 offlineStaffs.add(s);
             }
         }
-        
     }
 
     private void init(){
@@ -129,8 +128,6 @@ public class HomeActivity extends AppCompatActivity {
         offlineStaffs = new ArrayList<>();
 
         splitStaff();
-//        System.out.println("Size Online: "+ onlineStaffs.size());
-//        System.out.println("Size Offline: "+ offlineStaffs.size());
 
         rvAvailableStaffs.setAdapter(new StaffAdapter(this, onlineStaffs));
         rvAvailableStaffs.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));

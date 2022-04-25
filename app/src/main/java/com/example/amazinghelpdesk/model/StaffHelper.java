@@ -93,29 +93,5 @@ public class StaffHelper {
         return staff;
     }
 
-//    public void insertStaff(String name, String availableStatus, String id, String email, String phone, String availableStart, String availableEnd){
-//        String query = "INSERT INTO MsStaff VALUES ('" + name + "', '" + availableStatus + "', '" + id + "', '" + email + "', '" + phone + "', '" + availableStart + "', '" + availableEnd + "')";
-//        db.execSQL(query);
-//    }
-
-//    public void updateStaff(String name, String newName){
-//        String query = "UPDATE MsStaff SET StaffName = '" + newName + "' WHERE StaffName = '" + name + "'";
-//        Cursor cursor = db.rawQuery(query, null);
-//        cursor.moveToFirst();
-//
-//        if(cursor != null){
-//            db.execSQL(query);
-//        }
-//    }
-//
-//    public void deleteStaff(String name){
-//        String query = "DELETE FROM MsStaff WHERE StaffName = '" + name + "'";
-//        Cursor cursor = db.rawQuery(query, null);
-//        cursor.moveToFirst();
-//
-//        if(cursor != null){
-//            db.execSQL(query);
-//        }
-//    }
 
 }

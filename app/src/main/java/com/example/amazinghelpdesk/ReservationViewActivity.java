@@ -136,8 +136,6 @@ public class ReservationViewActivity extends AppCompatActivity {
         tvStaffName.setText(staffName);
 
         if(reservationArrayList.size() > 0){
-            System.out.println("Reservation List Size with this Id: " + reservationArrayList.size());
-
             Reservation reservation = reservationArrayList.get(0);
             SimpleDateFormat newDateFormat = new SimpleDateFormat("dd MMMM yyyy");
             String newDate = newDateFormat.format(reservation.getDate());
@@ -156,9 +154,5 @@ public class ReservationViewActivity extends AppCompatActivity {
             reservationEmpty.setVisibility(View.VISIBLE);
             reservationInfo.setRowCount(1);
         }
-
-
-
-
     }
 }
